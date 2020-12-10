@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>image-segmenter</title>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.7.0/dist/tf.min.js"></script>
+    <!-- Adds the WASM backend to the global backend registry -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm@2.7.0/dist/tf-backend-wasm.js"></script>
+    <script src="image-segmenter.js"></script>
+    <div style="margin: 20px;">
+      <h1>image-segmenter</h1>
+      <div style="padding: 10px;">
+        <button id="modelload" onclick="loadModel();">load model</button>
+        <input id="modelimage" type="file" name="filename" accept="image/gif, image/jpeg, image/png" onchange="loadImage(this);" disabled>
+        <button id="modelrun" onclick="runModel();" disabled>run model</button>
+      </div>
+      
+      <div style="padding: 10px;">
+        <div id="capimg" style="position:relative;display:inline-block;min-width:600px;vertical-align:top;">
+          <canvas id="canvasimage" style="z-index:1; position:absolute; left:0px; top:0px;"></canvas>
+          <canvas id="canvassegments" style="z-index:2; position:absolute; left:0px; top:0px;"></canvas>
+        </div>
+        <div id="message" style="position:relative;display:inline-block;"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
